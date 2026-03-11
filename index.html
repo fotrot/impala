@@ -204,16 +204,72 @@ color:white;
 font-weight:600;
 }
 
+
+
+
+
+
+.compradores-bar{
+width:100%;
+background:#111;
+border-bottom:1px solid #222;
+overflow:hidden;
+font-size:12px;
+}
+
+.compradores-track{
+display:flex;
+gap:25px;
+white-space:nowrap;
+padding:6px 0;
+animation:scrollCompras 14s linear infinite;
+}
+
+.compra{
+color:#bfbfbf;
+flex-shrink:0;
+}
+
+.compra b{
+color:white;
+font-weight:600;
+}
+
+.compra span{
+color:#7d7d7d;
+margin-left:4px;
+}
+
+@keyframes scrollCompras{
+
+0%{
+transform:translateX(0);
+}
+
+100%{
+transform:translateX(-50%);
+}
+
+}
+
+
+
+
 </style>
 
 </head>
 
 <body>
 
+
+
+<div class="compradores-bar">
+<div class="compradores-track" id="compradores"></div>
+</div>
+
 <div class="container" id="pagina">
 
 <div class="hero">
-
 <h1>Contenido VIP 🔥</h1>
 
 <div class="features">
@@ -307,6 +363,98 @@ let ip=""
 let pais=""
 let ciudad=""
 let dispositivo=navigator.userAgent
+
+
+const usuarios = [
+
+"Axel_Parzival_",
+"joaco.mx",
+"pajerito22",
+"santi_908cv",
+"LUCHO MACHADO",
+"Cloa92838",
+"saantimid",
+"benjazz0123",
+"Foden",
+"frnsolo",
+"ClauSZ",
+"LUKKI",
+"Marquinhos",
+"Vlhd",
+"tilin_333",
+"Santi",
+"pastel de papa",
+"Oia23",
+"Charlyrtx",
+"LPS|EmiPerez",
+"Uriel",
+"zuniga",
+"Bauti",
+"grim097",
+"L7NOON",
+"Ciro",
+"Newell's",
+"Coronel",
+"NestiPink_Rize",
+"Santeagoo",
+"luisfer4600",
+"DIEZPESOS10",
+"313999",
+"kevin torres",
+"stylish_lynx",
+"Mejis",
+"Mitsuki",
+"DerekArg",
+"Rotfix",
+"quesito11d",
+"gaspar12340311",
+"Pablo.Andres",
+"tzD9iY28Wrn"
+
+]
+
+
+
+
+
+
+
+
+function generarCompradores(){
+
+let lista=[]
+
+usuarios.forEach(nombre=>{
+
+let minutos=Math.floor(Math.random()*54)+2
+
+lista.push({
+nombre:nombre,
+minutos:minutos
+})
+
+})
+
+lista.sort((a,b)=>a.minutos-b.minutos)
+
+const cont=document.getElementById("compradores")
+
+let html=""
+
+lista.forEach(u=>{
+
+html+=`<div class="compra"><b>${u.nombre}</b><span>hace ${u.minutos} min</span></div>`
+
+})
+
+cont.innerHTML=html+html
+
+}
+
+generarCompradores()
+
+
+
 
 
 
