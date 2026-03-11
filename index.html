@@ -91,7 +91,37 @@ margin-top:10px;
 line-height:1.7;
 border:1px solid #262626;
 }
+.file-upload{
+margin-top:12px;
+}
 
+.file-label{
+display:block;
+background:#1f1f1f;
+border:2px dashed #ff0055;
+padding:18px;
+border-radius:12px;
+text-align:center;
+font-size:16px;
+cursor:pointer;
+transition:0.2s;
+}
+
+.file-label:hover{
+background:#2a2a2a;
+}
+
+#file{
+display:none;
+}
+
+#file-name{
+display:block;
+margin-top:8px;
+font-size:14px;
+color:#aaa;
+text-align:center;
+}
 .alias{
 background:#0f0f0f;
 padding:15px;
@@ -238,7 +268,13 @@ licho380.nx
 <h2>Enviar comprobante</h2>
 
 <input type="email" id="email" placeholder="Tu email">
+<div class="file-upload">
+<label for="file" class="file-label">
+📎 Subir comprobante
+</label>
 <input type="file" id="file">
+<span id="file-name">Ningún archivo seleccionado</span>
+</div>
 
 <button onclick="enviarComprobante()">
 ENVIAR COMPROBANTE
@@ -274,6 +310,15 @@ let ip=""
 let pais=""
 let ciudad=""
 let dispositivo=navigator.userAgent
+
+
+document.getElementById("file").addEventListener("change",function(){
+
+const fileName=this.files[0]?.name || "Ningún archivo seleccionado"
+
+document.getElementById("file-name").innerText=fileName
+
+})
 
 async function detectarIP(){
 
