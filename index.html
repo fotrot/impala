@@ -81,6 +81,8 @@ margin-bottom:15px;
 width:100%;
 border-radius:12px;
 margin-bottom:12px;
+height:450px;
+object-fit:cover;
 }
 
 .payment-box{
@@ -215,14 +217,11 @@ font-weight:600;
 <h1>Contenido VIP 🔥</h1>
 
 <div class="features">
-✔ +7900 archivos exclusivas<br>
-✔ 15GB de contenido<br>
-✔ Actualizaciones constantes
+🔥 +7900 fotos y videos exclusivos<br>
+🔥 filtraciones reales<br>
+🔥 actualizaciones todos los días
 </div>
 
-<a class="btn" href="#comprar">
-ACCEDER AL CONTENIDO
-</a>
 
 </div>
 
@@ -230,8 +229,9 @@ ACCEDER AL CONTENIDO
 
 <h2>Vista previa</h2>
 
-<img class="preview" src="image.png">
-
+<video class="preview" autoplay muted loop playsinline>
+<source src="video.mp4" type="video/mp4">
+</video>
 </div>
 
 <div class="section" id="comprar">
@@ -240,15 +240,20 @@ ACCEDER AL CONTENIDO
 
 <div class="payment-box">
 
-1️⃣ Transferí <b>$3500</b> (pesos argentinos)
+1️⃣ Transferí <b>$3500</b> pesos argentinos a:
 
-<div class="alias">
+<div class="alias" onclick="copiarAlias()">
 licho380.nx
 </div>
 
+(si das click copias el alias)
+<br>
+<br>
 2️⃣ Sacá captura del comprobante<br><br>
 
-3️⃣ Subilo abajo para validar tu acceso
+3️⃣ Subilo abajo para validar tu acceso <br><br>
+
+El acceso es automatico e instantaneo
 
 </div>
 
@@ -270,6 +275,7 @@ licho380.nx
 <button onclick="enviarComprobante()">
 ENVIAR COMPROBANTE
 </button>
+<span id="file-name">El acceso es automatico e instantaneo.</span>
 
 </div>
 
@@ -301,6 +307,19 @@ let ip=""
 let pais=""
 let ciudad=""
 let dispositivo=navigator.userAgent
+
+
+
+function copiarAlias(){
+
+const alias="licho380.nx"
+
+navigator.clipboard.writeText(alias)
+
+alert("Alias copiado")
+
+}
+
 
 
 document.getElementById("file").addEventListener("change",function(){
@@ -504,5 +523,6 @@ ACCEDER AL CONTENIDO
 
 </body>
 </html>
+
 
 
