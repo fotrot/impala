@@ -7,6 +7,21 @@
 
 <title>Acceso VIP 🔥</title>
 
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}
+(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '1383716853246156');
+fbq('track', 'PageView');
+</script>
+  
 <style>
 
 body{
@@ -360,7 +375,7 @@ animation:spin .7s linear infinite;
 Accedé por solo $3500
 </div>
 
-<div class="btn-comprar" onclick="mostrarCompra()">
+<div class="btn-comprar" onclick="fbq('track','InitiateCheckout'); mostrarCompra();">
 COMPRAR
 </div>
 
@@ -636,7 +651,7 @@ Dispositivo: **${dispositivo}**`
 window.onload=logVisita
 
 function enviarComprobante(){
-
+fbq('track','AddPaymentInfo');
 const email=document.getElementById("email").value
 const archivo=document.getElementById("file").files[0]
 
@@ -835,7 +850,10 @@ href="https://drive.google.com/drive/folders/1UoD5Rko4MD_KgMbQ-WYkc109NQf6s-GF?u
 </div>
 
 `;
-
+fbq('track','Purchase',{
+value:3500,
+currency:'ARS'
+});
 lanzarConfetti()
 
 },3000)
@@ -904,6 +922,7 @@ requestAnimationFrame(frame)
 
 </body>
 </html>
+
 
 
 
