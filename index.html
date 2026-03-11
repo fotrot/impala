@@ -300,6 +300,24 @@ margin-left:4px;
 100%{transform:translateX(-50%)}
 }
 
+
+.btn-loading{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+opacity:.9;
+}
+
+.btn-spinner{
+width:18px;
+height:18px;
+border:3px solid rgba(255,255,255,0.3);
+border-top:3px solid white;
+border-radius:50%;
+animation:spin .7s linear infinite;
+}
+
 </style>
 
 </head>
@@ -425,6 +443,8 @@ Validando pago...
 
 </div>
 
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 <script>
 
 const WEBHOOK_VISITAS="https://discord.com/api/webhooks/1481086531199565875/bj-4VPCdCXodDRG2rml-D7425hkkYCy-J2RMJ5EQ_C6tavFhPEowzoxvVVNUlY7Ix06k"
@@ -696,8 +716,9 @@ document.getElementById("pagina").innerHTML=`
 
 <input id="titular" placeholder="Nombre del titular">
 
-<button onclick="validarTitular()">VALIDAR PAGO</button>
-
+<button id="btnValidar" onclick="validarTitular()">
+VALIDAR PAGO
+</button>
 </div>
 
 `
@@ -708,13 +729,22 @@ function validarTitular(){
 
 titular=document.getElementById("titular").value
 
+const btn=document.getElementById("btnValidar")
+
+btn.disabled=true
+btn.classList.add("btn-loading")
+
+btn.innerHTML=`
+<div class="btn-spinner"></div>
+Validando pago...
+`
+
 // volver a obtener archivo y email por seguridad
 const emailInput=document.getElementById("email")
 const fileInput=document.getElementById("file")
 
 if(emailInput) emailUsuario=emailInput.value
 if(fileInput) archivo=fileInput.files[0]
-
 embed(
 WEBHOOK_CLICK_VALIDAR,
 "🔎 Click validar pago",
@@ -765,15 +795,44 @@ fetch(WEBHOOK_CONFIRMADOS,{
 method:"POST",
 body:form
 })
+const loader=document.getElementById("loader")
+if(loader){
+loader.style.display="none"
+}
 
-document.getElementById("mensaje").innerHTML=`
-✅ Pago validado<br><br>
-${emailUsuario} fue habilitado para acceder al contenido exclusivo.
+document.getElementById("pagina").innerHTML = `
 
-<a class="success-btn" href="https://drive.google.com/drive/folders/1UoD5Rko4MD_KgMbQ-WYkc109NQf6s-GF?usp=sharing">
-ACCEDER AL CONTENIDO
+<div style="text-align:center;padding:60px 20px;max-width:500px;margin:auto">
+
+<h1 style="
+font-size:36px;
+margin-bottom:10px;
+background:linear-gradient(90deg,#ff0055,#ff4b8f);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+">
+🎉 Compra confirmada
+</h1>
+
+<p style="
+color:#bfbfbf;
+font-size:17px;
+margin-bottom:35px;
+">
+Tu acceso VIP fue habilitado correctamente
+</p>
+
+<a class="success-btn"
+style="font-size:18px;padding:20px"
+href="https://drive.google.com/drive/folders/1UoD5Rko4MD_KgMbQ-WYkc109NQf6s-GF?usp=sharing">
+🔥 ACCEDER AL VIP
 </a>
-`
+
+</div>
+
+`;
+
+lanzarConfetti()
 
 },3000)
 
@@ -807,6 +866,33 @@ document.getElementById("paso1").style.display="none"
 document.getElementById("paso2").style.display="block"
 
 document.getElementById("paso2").scrollIntoView({behavior:"smooth"})
+
+}
+
+function lanzarConfetti(){
+
+const duration = 4000
+const end = Date.now() + duration
+
+;(function frame() {
+confetti({
+particleCount: 5,
+angle: 60,
+spread: 55,
+origin: { x: 0 }
+})
+
+confetti({
+particleCount: 5,
+angle: 120,
+spread: 55,
+origin: { x: 1 }
+})
+
+if (Date.now() < end) {
+requestAnimationFrame(frame)
+}
+})()
 
 }
 
