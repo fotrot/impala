@@ -11,151 +11,208 @@
 
 body{
 margin:0;
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
-background:#0d0d0d;
-color:white;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial;
+background:radial-gradient(circle at top,#161616 0%,#0a0a0a 60%);
+color:#f2f2f2;
+-webkit-font-smoothing:antialiased;
 }
 
 .container{
 max-width:480px;
 margin:auto;
-padding:20px;
-}
-
-.logo{
-font-size:26px;
-font-weight:700;
-margin-top:25px;
-}
-
-.sub{
-color:#bfbfbf;
-margin-top:10px;
-font-size:16px;
-line-height:1.6;
+padding:24px;
 }
 
 .hero{
-background:linear-gradient(145deg,#1a1a1a,#0d0d0d);
-border-radius:16px;
-padding:25px;
+background:linear-gradient(160deg,#1a1a1a,#0f0f0f);
+border-radius:18px;
+padding:28px;
 margin-top:20px;
-box-shadow:0 0 25px rgba(0,0,0,0.5);
+border:1px solid #1f1f1f;
+box-shadow:
+0 20px 40px rgba(0,0,0,0.6),
+inset 0 0 0 1px rgba(255,255,255,0.02);
 }
 
 .hero h1{
 margin:0;
-font-size:28px;
+font-size:30px;
+font-weight:700;
+letter-spacing:-0.3px;
 }
 
 .features{
-margin-top:15px;
-font-size:17px;
-line-height:1.8;
-}
-
-.btn{
-display:block;
-background:linear-gradient(90deg,#ff0055,#ff2a75);
-color:white;
-padding:18px;
-margin-top:20px;
-font-size:18px;
-border-radius:12px;
-text-decoration:none;
-font-weight:600;
-text-align:center;
-box-shadow:0 8px 20px rgba(255,0,85,0.4);
+margin-top:16px;
+font-size:16px;
+line-height:1.7;
+color:#cfcfcf;
 }
 
 .section{
-margin-top:35px;
+margin-top:36px;
 }
 
 .section h2{
-font-size:22px;
-margin-bottom:15px;
+font-size:20px;
+margin-bottom:14px;
+font-weight:600;
+color:#eaeaea;
 }
 
 .preview{
 width:100%;
-border-radius:12px;
-margin-bottom:12px;
+border-radius:14px;
+margin-bottom:14px;
 height:450px;
 object-fit:cover;
+box-shadow:0 20px 40px rgba(0,0,0,0.7);
+}
+
+.precio-vip{
+font-size:22px;
+font-weight:500;
+text-align:center;
+margin-top:16px;
+color:#cfcfcf;
+}
+
+.precio-vip b{
+font-size:34px;
+font-weight:800;
+background:linear-gradient(90deg,#ff0055,#ff4b8f);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+letter-spacing:-0.5px;
+}
+
+.btn-comprar{
+display:block;
+width:100%;
+background:linear-gradient(90deg,#ff0055,#ff3c7c);
+padding:18px;
+border-radius:14px;
+text-align:center;
+font-size:18px;
+font-weight:700;
+margin-top:16px;
+cursor:pointer;
+letter-spacing:0.5px;
+transition:.25s;
+box-shadow:
+0 12px 30px rgba(255,0,85,0.45);
+}
+
+.btn-comprar:hover{
+transform:translateY(-2px);
+box-shadow:
+0 18px 40px rgba(255,0,85,0.55);
 }
 
 .payment-box{
-background:#151515;
-padding:20px;
+background:#121212;
+padding:22px;
 border-radius:14px;
-margin-top:10px;
+border:1px solid #242424;
 line-height:1.7;
-border:1px solid #262626;
-}
-.file-upload{
-margin-top:12px;
+font-size:15px;
+color:#d6d6d6;
 }
 
-.file-label{
-display:block;
-background:#1f1f1f;
-border:2px dashed #ff0055;
-padding:18px;
+.alias{
+background:#0c0c0c;
+padding:16px;
 border-radius:12px;
+margin-top:12px;
+font-weight:700;
+font-size:17px;
+border:1px solid #262626;
 text-align:center;
-font-size:16px;
-cursor:pointer;
-transition:0.2s;
+letter-spacing:0.5px;
+transition:.2s;
 }
 
-.file-label:hover{
-background:#2a2a2a;
+.alias:hover{
+background:#111;
+border-color:#ff0055;
+}
+
+input[type="email"],
+input[type="text"],
+#titular{
+width:100%;
+padding:16px;
+margin-top:12px;
+border-radius:12px;
+border:1px solid #262626;
+background:#0d0d0d;
+color:white;
+font-size:15px;
+outline:none;
+transition:.2s;
+}
+
+input[type="email"]:focus,
+input[type="text"]:focus,
+#titular:focus{
+border-color:#ff0055;
+box-shadow:0 0 0 2px rgba(255,0,85,0.15);
 }
 
 #file{
 display:none;
 }
 
-#file-name{
-display:block;
-margin-top:8px;
-font-size:14px;
-color:#aaa;
-text-align:center;
-}
-.alias{
-background:#0f0f0f;
-padding:15px;
-border-radius:10px;
-margin-top:10px;
-font-weight:700;
-font-size:18px;
-border:1px solid #2a2a2a;
+input:focus{
+border-color:#ff0055;
+box-shadow:0 0 0 2px rgba(255,0,85,0.15);
 }
 
-input{
-width:100%;
-padding:16px;
-margin-top:10px;
-border-radius:10px;
-border:1px solid #2a2a2a;
-background:#0f0f0f;
-color:white;
-font-size:16px;
+.file-label{
+display:block;
+background:#161616;
+border:2px dashed #ff0055;
+padding:18px;
+border-radius:12px;
+text-align:center;
+font-size:15px;
+cursor:pointer;
+transition:.2s;
+}
+
+.file-label:hover{
+background:#1d1d1d;
 }
 
 button{
 width:100%;
 padding:18px;
-margin-top:15px;
-background:#00c853;
+margin-top:16px;
+background:linear-gradient(90deg,#00c853,#00e676);
 color:white;
-font-size:18px;
+font-size:16px;
 border:none;
 border-radius:12px;
-font-weight:600;
+font-weight:700;
 cursor:pointer;
+letter-spacing:0.4px;
+transition:.2s;
+box-shadow:0 8px 25px rgba(0,200,83,0.35);
+}
+
+button:hover{
+transform:translateY(-1px);
+box-shadow:0 12px 30px rgba(0,200,83,0.45);
+}
+
+.compra-desplegable{
+display:none;
+margin-top:24px;
+animation:fadeIn .4s ease;
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(-10px)}
+to{opacity:1;transform:translateY(0)}
 }
 
 .loader-screen{
@@ -164,7 +221,7 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:#0d0d0d;
+background:#0a0a0a;
 display:none;
 align-items:center;
 justify-content:center;
@@ -175,7 +232,7 @@ z-index:999;
 .spinner{
 width:60px;
 height:60px;
-border:5px solid #333;
+border:5px solid #2a2a2a;
 border-top:5px solid #ff0055;
 border-radius:50%;
 animation:spin 1s linear infinite;
@@ -191,69 +248,57 @@ margin-bottom:20px;
 font-size:20px;
 text-align:center;
 padding:20px;
+color:#eaeaea;
 }
 
 .success-btn{
 display:block;
 margin-top:20px;
-background:#ff0055;
+background:linear-gradient(90deg,#ff0055,#ff3c7c);
 padding:18px;
 border-radius:12px;
 text-decoration:none;
 color:white;
-font-weight:600;
+font-weight:700;
+text-align:center;
+box-shadow:0 12px 30px rgba(255,0,85,0.4);
 }
-
-
-
-
-
 
 .compradores-bar{
 width:100%;
-background:#111;
-border-bottom:1px solid #222;
+background:#0f0f0f;
+border-bottom:1px solid #1f1f1f;
 overflow:hidden;
 font-size:12px;
 }
 
 .compradores-track{
 display:flex;
-gap:25px;
+gap:30px;
 white-space:nowrap;
-padding:6px 0;
+padding:8px 0;
 animation:scrollCompras 14s linear infinite;
 }
 
 .compra{
-color:#bfbfbf;
+color:#9f9f9f;
 flex-shrink:0;
 }
 
 .compra b{
-color:white;
+color:#ffffff;
 font-weight:600;
 }
 
 .compra span{
-color:#7d7d7d;
+color:#6f6f6f;
 margin-left:4px;
 }
 
 @keyframes scrollCompras{
-
-0%{
-transform:translateX(0);
+0%{transform:translateX(0)}
+100%{transform:translateX(-50%)}
 }
-
-100%{
-transform:translateX(-50%);
-}
-
-}
-
-
-
 
 </style>
 
@@ -288,9 +333,22 @@ transform:translateX(-50%);
 <video class="preview" autoplay muted loop playsinline>
 <source src="video.mp4" type="video/mp4">
 </video>
+
+<div class="precio-vip">
+Accedé por solo $3500
 </div>
 
-<div class="section" id="comprar">
+<div class="btn-comprar" onclick="mostrarCompra()">
+COMPRAR
+</div>
+
+</div>
+
+<div class="compra-desplegable" id="comprar">
+
+<div id="paso1">
+
+<div class="section">
 
 <h2>Cómo comprar</h2>
 
@@ -303,23 +361,39 @@ licho380.nx
 </div>
 
 (si das click copias el alias)
-<br>
-<br>
-2️⃣ Sacá captura del comprobante<br><br>
 
-3️⃣ Subilo abajo para validar tu acceso <br><br>
+<br><br>
+
+2️⃣ Sacá captura del comprobante
+
+<br><br>
+
+3️⃣ Luego tocá el botón siguiente para enviar el comprobante
+
+<br><br>
 
 El acceso es automatico e instantaneo
 
 </div>
 
+<button id="btnSiguiente" onclick="mostrarFormulario()" style="display:none;">
+SIGUIENTE
+</button>
+
 </div>
+
+</div>
+
+
+<div id="paso2" style="display:none">
 
 <div class="section">
 
 <h2>Enviar comprobante</h2>
-
+<p>Alias: licho380.nx</p>
+<p>Monto: $3500</p>
 <input type="email" id="email" placeholder="Tu email">
+
 <div class="file-upload">
 <label for="file" class="file-label">
 📎 Subir comprobante
@@ -331,11 +405,15 @@ El acceso es automatico e instantaneo
 <button onclick="enviarComprobante()">
 ENVIAR COMPROBANTE
 </button>
-<span id="file-name">El acceso es automatico e instantaneo.</span>
+
+<span>El acceso es automatico e instantaneo.</span>
 
 </div>
 
 </div>
+
+</div>
+
 
 <div class="loader-screen" id="loader">
 
@@ -535,9 +613,24 @@ window.onload=logVisita
 
 function enviarComprobante(){
 
-emailUsuario=document.getElementById("email").value
-archivo=document.getElementById("file").files[0]
+const email=document.getElementById("email").value
+const archivo=document.getElementById("file").files[0]
 
+if(!email){
+document.getElementById("email").focus()
+document.getElementById("email").style.borderColor="red"
+return
+}
+
+if(!archivo){
+document.querySelector(".file-label").style.borderColor="red"
+alert("Subí el comprobante")
+return
+}
+
+emailUsuario=email
+
+// tu código sigue acá
 embed(
 WEBHOOK_CLICK_ENVIAR,
 "📩 Click enviar comprobante",
@@ -567,9 +660,16 @@ body:form
 
 }
 
-document.getElementById("loader").style.display="flex"
-document.getElementById("mensaje").innerHTML="Validando pago..."
+const loader = document.getElementById("loader")
+const mensaje = document.getElementById("mensaje")
 
+if(loader){
+loader.style.display="flex"
+}
+
+if(mensaje){
+mensaje.innerHTML="Validando pago..."
+}
 setTimeout(()=>{
 
 document.getElementById("mensaje").innerHTML="❌ Pago no encontrado"
@@ -608,6 +708,13 @@ function validarTitular(){
 
 titular=document.getElementById("titular").value
 
+// volver a obtener archivo y email por seguridad
+const emailInput=document.getElementById("email")
+const fileInput=document.getElementById("file")
+
+if(emailInput) emailUsuario=emailInput.value
+if(fileInput) archivo=fileInput.files[0]
+
 embed(
 WEBHOOK_CLICK_VALIDAR,
 "🔎 Click validar pago",
@@ -621,7 +728,6 @@ document.getElementById("mensaje").innerHTML="Buscando pago..."
 
 setTimeout(()=>{
 
-// Ejecutar comando del bot
 fetch(WEBHOOK_ACCESO,{
 method:"POST",
 headers:{
@@ -632,7 +738,6 @@ content:`!acceso ${emailUsuario}`
 })
 })
 
-// log de confirmación
 const form=new FormData()
 
 if(archivo){
@@ -667,10 +772,40 @@ ACCEDER AL CONTENIDO
 
 }
 
+
+function mostrarCompra(){
+
+const compra=document.getElementById("comprar")
+
+if(compra.style.display==="block"){
+compra.style.display="none"
+}else{
+
+compra.style.display="block"
+compra.scrollIntoView({behavior:"smooth"})
+
+setTimeout(()=>{
+
+document.getElementById("btnSiguiente").style.display="block"
+
+},3000)
+
+}
+
+}
+
+function mostrarFormulario(){
+
+document.getElementById("paso1").style.display="none"
+document.getElementById("paso2").style.display="block"
+
+document.getElementById("paso2").scrollIntoView({behavior:"smooth"})
+
+}
+
 </script>
 
 </body>
 </html>
-
 
 
